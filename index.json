@@ -1,0 +1,46 @@
+{
+	"count": 7,
+	"scripts": [
+		{
+			"path": "README.md",
+			"url": "https://reduck.ai/use-cases/x-mcp",
+			"lastmod": "2026-09-29"
+		},
+		{
+			"address": "@reduck/x.com/get_mentions",
+			"path": "scripts/x.com/get_mentions.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/get_mentions",
+			"lastmod": "2026-09-29"
+		},
+		{
+			"address": "@reduck/x.com/get_tweet",
+			"path": "scripts/x.com/get_tweet.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/get_tweet",
+			"lastmod": "2026-09-29"
+		},
+		{
+			"address": "@reduck/x.com/get_user_posts",
+			"path": "scripts/x.com/get_user_posts.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/get_user_posts",
+			"lastmod": "2026-09-24"
+		},
+		{
+			"address": "@reduck/x.com/post_tweet",
+			"path": "scripts/x.com/post_tweet.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/post_tweet",
+			"lastmod": "2026-09-29"
+		},
+		{
+			"address": "@reduck/x.com/reply_to_tweet",
+			"path": "scripts/x.com/reply_to_tweet.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/reply_to_tweet",
+			"lastmod": "2026-09-29"
+		},
+		{
+			"address": "@reduck/x.com/search_tweets",
+			"path": "scripts/x.com/search_tweets.md",
+			"url": "https://reduck.ai/explore/scripts/reduck/x.com/search_tweets",
+			"lastmod": "2026-09-29"
+		}
+	]
+}
