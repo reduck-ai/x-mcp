@@ -1,6 +1,12 @@
 # X MCP
 
-An X (Twitter) MCP server that works as you: search tweets, read any account's posts, your mentions and DMs, and post, reply or thread, from Claude, ChatGPT or Cursor. No X developer account, no API key, no credits.
+X's API is pay-per-use and needs a developer app, even to read a post. This X (Twitter) MCP server (Model Context Protocol) lets Claude, ChatGPT or Cursor search tweets, read any account's posts, your mentions and DMs, and post or reply as you, with no API key and no credits.
+
+![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
+
+[Reduck MCP](https://docs.reduck.ai) gives your agent reusable browser scripts for the sites that have no API. They run in your own Chrome, through the Reduck extension, where you are already signed in: no credentials exposed, and no bot detection.
+
+**Get started:** [docs.reduck.ai](https://docs.reduck.ai)
 
 ## Overview
 
