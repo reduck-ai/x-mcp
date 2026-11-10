@@ -1,10 +1,10 @@
-# X (Twitter) search API: search tweets with every operator, no API key
+# Search X (Twitter) posts
 
-Automatically search tweets with every operator, no API key on x.com. Search X (Twitter) for tweets with every X search operator, from the Top tab (a ranked sample, the default) or the Latest tab (chronological), picked by the tab arg. Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, plus followers (the author's follower count, a search-only enrichment), and the top-level query and count. Top is a ranked sample, not exhaustive.
+Automatically search X (Twitter) posts on x.com. Search X (Twitter) for tweets with every X search operator, from the Top tab (a ranked sample, the default) or the Latest tab (chronological), picked by the tab arg. Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, plus followers (the author's follower count, a search-only enrichment), and the top-level query and count. Top is a ranked sample, not exhaustive.
 
 - Site: x.com
 - Address: `reduck/x.com/search_tweets`
-- Updated: 2026-09-29 (v6)
+- Updated: 2026-10-22 (v12)
 - Author: Reduck AI (reduck)
 
 ## Run it
@@ -17,29 +17,30 @@ npx @reduck-ai/cli@latest run --script reduck/x.com/search_tweets
 
 ## Input
 
-- `query` (string, required): Raw X search query. Supports all X search operators, e.g. '"AI automation" min_faves:500 since:2026-06-04'. Combining -filter:replies with min_faves and since can unexpectedly return zero results; using fewer operators together is more reliable. The query is taken literally, so if it targets a person or organization ambiguously — a bare first name, a nickname, or a handle you are not certain is exact, meant for from:/to:/@ targeting — resolve the exact handle first (for example via get_user_info, or by asking) rather than guessing: a wrong guess does not error, it silently searches the wrong thing and returns a plausible-looking but incorrect result set.
-- `tab` (string, optional): Which search tab: 'top' (ranked, default) or 'latest' (chronological). Top is a sample, not an exhaustive ranking.
-- `count` (integer, optional): Max tweets to return. The script scrolls until count is met or results dry up. Default 20, max 100.
+- `query` (string, required): Raw X search query. Supports all X search operators, e.g. '"AI automation" min_faves:500 since:2026-06-04'. Combining -filter:replies with min_faves and since can unexpectedly return zero results; using fewer operators together is more reliable. The query is taken literally, so if it targets a person or organization ambiguously (a bare first name, a nickname, or a handle you are not certain is exact, meant for from:/to:/@ targeting), resolve the exact handle first (for example via get_user_info, or by asking) rather than guessing: a wrong guess does not error, it searches the wrong thing and returns a plausible-looking but incorrect result set.
+- `tab` (string, optional): Which search tab: 'top' (ranked, default) or 'latest' (chronological); either casing is accepted. Top is a sample, not an exhaustive ranking.
+- `count` (integer, optional): How many to return. Without it, the script returns the first page X shows (often 20 to 40). With it, the script loads more until it has count, reaches the end, or X stops loading; complete says whether it reached the end.
 
 ## Output
 
-- `count` (integer, required): Number of tweets returned. 0 is a first-class outcome (no results for the query).
+- `count` (integer, required): Number of tweets returned. 0 is a valid answer.
 - `query` (string, required)
 - `tweets` (array, required)
+- `complete` (boolean, required): True when X showed the end of the results and every one it sent is returned. False when there may be more: count was reached, X stopped loading, or no count was given and the first page is not the end.
 
 ## FAQ
 
-### What does "X (Twitter) search API: search tweets with every operator, no API key" do?
+### What does "Search X (Twitter) posts" do?
 
 Search X (Twitter) for tweets with every X search operator, from the Top tab (a ranked sample, the default) or the Latest tab (chronological), picked by the tab arg. Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, plus followers (the author's follower count, a search-only enrichment), and the top-level query and count. Top is a ranked sample, not exhaustive.
 
-### How do I automatically search tweets with every operator, no API key on x.com?
+### How do I automatically search X (Twitter) posts on x.com?
 
 Ask an AI agent connected to Reduck to run reduck/x.com/search_tweets, or run it from a terminal with the Reduck CLI: npx @reduck-ai/cli@latest run --script reduck/x.com/search_tweets
 
-### Is there a x.com API to search tweets with every operator, no API key?
+### Is there a x.com API to search X (Twitter) posts?
 
-You do not need one. "X (Twitter) search API: search tweets with every operator, no API key" drives the real x.com pages in a browser, so it works whether or not x.com offers an API for this.
+You do not need one. "Search X (Twitter) posts" drives the real x.com pages in a browser, so it works whether or not x.com offers an API for this.
 
 ### What information do I need to provide?
 
@@ -47,7 +48,7 @@ Required: query. Optional: tab, count.
 
 ### What does it return?
 
-It returns count, query, tweets.
+It returns count, query, tweets, complete.
 
 ### Do I need to be logged in to x.com?
 

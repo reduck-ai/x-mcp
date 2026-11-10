@@ -1,8 +1,9 @@
 # X MCP
 
-[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/reduck-ai/x-mcp)
-
 X's API is pay-per-use and needs a developer app, even to read a post. This X (Twitter) MCP server (Model Context Protocol) lets Claude, ChatGPT or Cursor search tweets, read any account's posts, your mentions and DMs, and post or reply as you, with no API key and no credits.
+
+- Product: Reduck MCP
+- Updated: 2026-10-02
 
 ![One integration, every website](https://docs.reduck.ai/overview/one-integration-every-website.png)
 

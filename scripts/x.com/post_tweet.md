@@ -4,7 +4,7 @@ Automatically post a tweet on X (Twitter) from an AI agent, no API key on x.com.
 
 - Site: x.com
 - Address: `reduck/x.com/post_tweet`
-- Updated: 2026-09-29 (v13)
+- Updated: 2026-10-22 (v14)
 - Author: Reduck AI (reduck)
 
 ## Run it

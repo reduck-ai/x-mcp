@@ -1,10 +1,10 @@
-# X (Twitter) mentions API: read the tweets that mention you
+# X (Twitter) mentions unofficial API: read tweets that mention you
 
-Automatically read the tweets that mention you on x.com. List recent tweets mentioning the logged-in account (the Notifications > Mentions tab). Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, and in_reply_to {id, author_handle} (null unless the mention is a reply). Scrolls until count is met or the list dries up.
+Automatically read tweets that mention you on x.com. List recent tweets mentioning the logged-in account (the Notifications > Mentions tab). Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, and in_reply_to {id, author_handle} (null unless the mention is a reply). Scrolls until count is met or the list dries up.
 
 - Site: x.com
 - Address: `reduck/x.com/get_mentions`
-- Updated: 2026-09-29 (v4)
+- Updated: 2026-10-22 (v7)
 - Author: Reduck AI (reduck)
 
 ## Run it
@@ -17,26 +17,27 @@ npx @reduck-ai/cli@latest run --script reduck/x.com/get_mentions
 
 ## Input
 
-- `count` (integer, optional): Max mentions to return. Default 50.
+- `count` (integer, optional): How many to return. Without it, the script returns the first page X shows (often 20 to 40). With it, the script loads more until it has count, reaches the end, or X stops loading; complete says whether it reached the end.
 
 ## Output
 
-- `count` (integer, required): Number of mentions returned. 0 is a first-class outcome (no mentions).
+- `count` (integer, required): Number of mentions returned. 0 is a valid answer.
+- `complete` (boolean, required): True when X showed the end of the mentions and every one it sent is returned. False when there may be more: count was reached, X stopped loading, or no count was given and the first page is not the end.
 - `mentions` (array, required)
 
 ## FAQ
 
-### What does "X (Twitter) mentions API: read the tweets that mention you" do?
+### What does "X (Twitter) mentions unofficial API: read tweets that mention you" do?
 
 List recent tweets mentioning the logged-in account (the Notifications > Mentions tab). Returns per tweet a canonical record: id, url, author {id, handle, name}, text, created_at, lang, likes, retweets, replies, quotes, bookmarks, views, is_retweet, is_quote, and in_reply_to {id, author_handle} (null unless the mention is a reply). Scrolls until count is met or the list dries up.
 
-### How do I automatically read the tweets that mention you on x.com?
+### How do I automatically read tweets that mention you on x.com?
 
 Ask an AI agent connected to Reduck to run reduck/x.com/get_mentions, or run it from a terminal with the Reduck CLI: npx @reduck-ai/cli@latest run --script reduck/x.com/get_mentions
 
-### Is there a x.com API to read the tweets that mention you?
+### Is there a x.com API to read tweets that mention you?
 
-You do not need one. "X (Twitter) mentions API: read the tweets that mention you" drives the real x.com pages in a browser, so it works whether or not x.com offers an API for this.
+You do not need one. "X (Twitter) mentions unofficial API: read tweets that mention you" drives the real x.com pages in a browser, so it works whether or not x.com offers an API for this.
 
 ### What information do I need to provide?
 
@@ -44,7 +45,7 @@ Optional: count.
 
 ### What does it return?
 
-It returns count, mentions.
+It returns count, complete, mentions.
 
 ### Do I need to be logged in to x.com?
 

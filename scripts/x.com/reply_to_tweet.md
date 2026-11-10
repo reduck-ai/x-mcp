@@ -4,7 +4,7 @@ Automatically reply to a tweet on X (Twitter) from an AI agent on x.com. Reply t
 
 - Site: x.com
 - Address: `reduck/x.com/reply_to_tweet`
-- Updated: 2026-09-29 (v8)
+- Updated: 2026-10-22 (v9)
 - Author: Reduck AI (reduck)
 
 ## Run it
